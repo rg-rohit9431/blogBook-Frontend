@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState  } from 'react'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
+
 //icons
 
 
 const SignUp = () => {
 
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,6 +31,7 @@ const SignUp = () => {
     // You can add your logic for form submission here
     console.log('Form submitted:', formData);
     toast.success('Register successfully!');
+    navigate('/');
   };
 
   return (
@@ -48,6 +53,7 @@ const SignUp = () => {
               onChange={changeHandler}
               value={formData.name}
               placeholder='Enter your full name'
+              required
             ></input>
           </div>
           {/* email */}
@@ -61,7 +67,7 @@ const SignUp = () => {
               onChange={changeHandler}
               value={formData.email}
               placeholder='Enter your email address'
-
+              required
             ></input>
           </div>
           {/* password */}
@@ -75,7 +81,7 @@ const SignUp = () => {
               onChange={changeHandler}
               value={formData.password}
               placeholder='Enter your password'
-
+              required
             ></input>
           </div>
           {/* confirmPassword */}
@@ -89,7 +95,7 @@ const SignUp = () => {
               onChange={changeHandler}
               value={formData.confirmPassword}
               placeholder='Enter your confirmPassword'
-
+              required
             ></input>
           </div>
 

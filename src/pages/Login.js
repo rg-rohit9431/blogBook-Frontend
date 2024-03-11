@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -17,7 +19,8 @@ const Login = () => {
 
     // You can add your logic for form submission here
     console.log('Form submitted:', formData);
-    toast.success('Register successfully!');
+    toast.success('Login successfully!');
+    navigate('/dashboard');
   };
   return (
     <div className='w-full h-[calc(100vh-80px)]'>

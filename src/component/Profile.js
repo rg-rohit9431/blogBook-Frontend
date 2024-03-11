@@ -9,9 +9,9 @@ import { IoPerson } from "react-icons/io5";
 
 
 
-const Profile = ({windowWidth,size}) => {
+const Profile = ({ windowWidth, size, setAddform, setEditProfile }) => {
     return (
-        <div className={`z-[100] bg-white ${windowWidth>640 ? 'relative' : 'absolute '} w-[20%] min-w-[260px] h-[${size}] border-r-2 p-2`}>
+        <div className={`z-[100] bg-white ${windowWidth > 640 ? 'relative' : 'absolute '} w-[20%] min-w-[260px] h-[${size}] border-r-2 p-2`}>
 
             {/* image */}
             <div className='w-fit h-fit mx-auto'>
@@ -25,7 +25,12 @@ const Profile = ({windowWidth,size}) => {
                     <p className='text-[2.4rem] font-[700]'>Hello!</p>
                     <p className='text-[#116DFF] text-[1.6rem]'>Rohit Kumar Gupta</p>
                 </div>
-                <MdModeEdit className='text-[1.3rem] mr-1 cursor-pointer' />
+                <MdModeEdit
+                    onClick={() => {
+                        setAddform(false);
+                        setEditProfile(true);
+                    }}
+                    className='text-[1.3rem] mr-1 cursor-pointer' />
             </div>
 
             {/* Followers Following */}
@@ -43,7 +48,7 @@ const Profile = ({windowWidth,size}) => {
             <Link to='/'>
                 <button className='mt-[.5rem] w-full text-start px-[1rem] rounded-sm py-[.5rem] text-[1.1rem]  hover:bg-black hover:text-white'>Home</button>
             </Link>
-            
+
             {/* my blog */}
             <button className=' w-full text-start px-[1rem] rounded-sm py-[.5rem] text-[1.1rem]  hover:bg-black hover:text-white'>My Blogs</button>
 
